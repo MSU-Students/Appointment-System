@@ -6,6 +6,7 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/SignupLayout.vue'),
     children:
     [
+      { path: '', component: () => import('pages/signed.vue')},
       { path: '/signed', component: () => import('pages/signed.vue')},
       { path: '/Login', component: () => import('pages/Login.vue')}
 
@@ -16,8 +17,26 @@ const routes: RouteRecordRaw[] = [
     component: () => import('layouts/HomeLayout.vue'),
     children:
     [
-      { path: '/HomeLayout', component: () => import('layouts/HomeLayout.vue')}
+      { path: '/dashb', component: () => import('pages/dashb.vue')},
+      { path: '/newappoint', component: () => import('pages/newappoint.vue')},
+      { path: '/HomeAppointment', component: () => import('pages/HomeAppointment.vue')},
+      { path: '/searchAppointment', component: () => import('pages/searchAppointment.vue')},
+      { path: '/viewSchedules', component: () => import('pages/viewSchedules.vue')},
+      { path: '/feedbacks', component: () => import('pages/feedbacks.vue')}
 
+     
+    ],
+  },
+  {
+    path: '/',
+    component: () => import('layouts/adminLayout.vue'),
+    children:
+    [
+      { path: '/adminDash', component: () => import('pages/adminDash.vue')},
+      { path: '/viewAppointments', component: () => import('pages/viewAppointments.vue')},
+      { path: '/adminViewSchedule', component: () => import('pages/adminViewSchedule.vue')},
+      { path: '/manageEmployee', component: () => import('pages/manageEmployee.vue')},
+      { path: '/manageAccount', component: () => import('pages/manageAccount.vue')}
     ],
   },
 

@@ -29,7 +29,7 @@
     >
       <q-scroll-area class="fit">
         <q-list padding class="menu-list">
-          <q-item clickable v-ripple to="dashb">
+          <q-item clickable v-ripple to="adminDash">
             <q-item-section avatar>
               <q-icon name="dashboard" />
             </q-item-section>
@@ -37,7 +37,7 @@
             <q-item-section> Dashboard </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple to="HomeAppointment">
+          <q-item clickable v-ripple to="viewAppointments">
             <q-item-section avatar>
               <q-icon name="assignment" />
             </q-item-section>
@@ -45,28 +45,37 @@
             <q-item-section>Appointments </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple to="searchAppointment">
-            <q-item-section avatar>
-              <q-icon name="manage_search" />
-            </q-item-section>
-
-            <q-item-section> Search Appointment </q-item-section>
-          </q-item>
-          <q-separator />
-          <q-item clickable v-ripple to="viewSchedules">
+          <q-item clickable v-ripple to="adminViewSchedule">
             <q-item-section avatar>
               <q-icon name="event_available" />
             </q-item-section>
 
             <q-item-section> Schedule </q-item-section>
           </q-item>
+          <q-separator />
+           <q-item clickable v-ripple to="manageEmployee">
+            <q-item-section avatar>
+              <q-icon name="people" />
+            </q-item-section>
+ 
+            <q-item-section> Manage Employee </q-item-section>
+          </q-item>
+
+           <q-item clickable v-ripple to="manageAccount">
+            <q-item-section avatar>
+              <q-icon name="settings" />
+            </q-item-section>
+
+            <q-item-section> Manage Account </q-item-section>
+          </q-item>
+          <q-separator />
           
           <q-item clickable v-ripple to="feedbacks">
             <q-item-section avatar>
               <q-icon name="feedback" />
             </q-item-section>
 
-            <q-item-section> Send Feedback </q-item-section>
+            <q-item-section>Feedback </q-item-section>
           </q-item>
         </q-list>
       </q-scroll-area>
