@@ -12,8 +12,9 @@
                       
       
                           <div class="text-h1 text-bold text-arial text-black flex flex-left"> MSU APPOINTMENT SYSTEM </div>
-                        
-                          
+                          <q-card class="bg-black text-center">
+                          <div class="text-h4 text-arial text-bold text-white flex flex-left"> OFFICE OF THE CHANCELLOR </div>
+                          </q-card>
                     </div>
                   </div>
                 </div>
@@ -23,9 +24,9 @@
         </div>
       </div>
     </div>
-    <div class="float-right q-pr-lg">
+    <div class="float-right q-pr-xl">
       
-      <q-card class="bg-black] text-center">
+      <q-card class="bg-white text-center">
         <q-card-section style="width: 300px" >
         </q-card-section>
         <div class="q-pa-xs flex flex-center">
