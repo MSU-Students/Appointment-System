@@ -1,48 +1,71 @@
 <template>
   <q-page class="bg-image">
-    <div class="fixed-right">
+    <div class="q-pl-lg absolute-center">
+      <div class="q-pr-xl">
+        <div class="q-pr-xl">
+          <div class="q-pr-xl">
+            <div class="q-pr-xl">
+              <div class="q-pr-xl">
+                <div class="q-pr-xl">
+                  <div class="q-pr-xl">
+                    <div class="q-pr-xl">
+                      
       
-      <q-card class="bg-black text-center">
-        <q-card-section style="width: 350px" >
+                          <div class="text-h1 text-bold text-arial text-black flex flex-left"> MSU APPOINTMENT SYSTEM </div>
+                        
+                          
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="float-right q-pr-lg">
+      
+      <q-card class="bg-black] text-center">
+        <q-card-section style="width: 300px" >
         </q-card-section>
         <div class="q-pa-xs flex flex-center">
           <q-input
             filled
-            v-model="text"
+            v-model="Firstname"
             label="Enter First name"
-            style="width: 300px" color="black" bg-color="grey-3" label-color="black" 
+            style= "width: 250px" color="black" bg-color="grey-3" label-color="black" 
           />
         </div>
         <div class="q-pa-xs flex flex-center">
           <q-input
             filled
-            v-model="text"
+            v-model="Lastname"
             label="Enter Last name"
-            style="width: 300px" color="black" bg-color="grey-3" label-color="black" 
+            style="width: 250px" color="black" bg-color="grey-3" label-color="black" 
           />
         </div>
         <div class="q-pa-xs flex flex-center">
           <q-input
             filled
-            v-model="text"
+            v-model="Username"
             label="Enter username"
-            style="width: 300px" color="black" bg-color="grey-3" label-color="black" 
+            style="width: 250px" color="black" bg-color="grey-3" label-color="black" 
           />
         </div>
         <div class="q-pa-xs flex flex-center">
           <q-input
             filled
-            v-model="text"
+            v-model="Email"
             label="Enter email"
-            style="width: 300px" color="black" bg-color="grey-3" label-color="black" 
+            style="width: 250px" color="black" bg-color="grey-3" label-color="black" 
           />
         </div>
         <div class="q-pa-xs flex flex-center">
           <q-input
             filled
-            v-model="text"
+            v-model="Mobile"
             label="Enter mobile"
-            style="width: 300px" color="black" bg-color="grey-3" label-color="black" 
+            style="width: 250px" color="black" bg-color="grey-3" label-color="black" 
           />
         </div>
        
@@ -52,7 +75,7 @@
             v-model="password"
             label="Enter password"
             type="password"
-            style="width: 300px" color="black" bg-color="white" label-color="black" 
+            style="width: 250px" color="black" bg-color="grey-4" label-color="black" 
           >
             <template v-slot:append>
               <q-icon
@@ -67,10 +90,10 @@
         <div class="q-pa-xs flex flex-center">
           <q-input
             filled
-            v-model="password"
+            v-model="confirmpassword"
             label="Confirm password"
             type="password"
-            style="width: 300px" color="black" bg-color="white" label-color="black" 
+            style="width: 250px" color="black" bg-color="grey-4" label-color="black" 
           >
             <template v-slot:append>
               <q-icon
@@ -81,16 +104,10 @@
             </template>
           </q-input>
         </div>
-        <div class="q-pa-lg q-gutter-sm flex flex-center">
+        <div class="q-pa-md q-gutter-sm flex flex-center">
           
-           <q-btn
-      v-for="size in sizes" :key="`btn_size_rd_${size}`"
-      
-      color="white"
-      :size="size"
-      :label="`Register`"
-      :text-color="'black'"
-    />
+        <q-btn label="Register" style="width:150px" class="text-bold bg-black text-white flex flex-center" to="signed"/>
+        
         </div>
       
       </q-card>
@@ -103,10 +120,15 @@
 import { ref } from 'vue';
 
 export default {
-  setup() {
+  data() {
     return {
-      text: '',
+      Firstname: '',
+      Lastname: '',
+      Username: '',
+      Email: '',
+      Mobile: '',
        password: '',
+       confirmpassword: '',
       isPwd: ref(true),
       sizes: ['md'],
     };

@@ -8,20 +8,16 @@
       </q-toolbar-title>
 
     <div class="q-pa-xss q-gutter-sm flex flex-center">
-       <q-btn outline rounded color="white" label="Sign Up" class="bg-transparent" > 
-           
-    
-     
-       
+       <q-btn outline rounded color="white" label="Sign Up" class="bg-transparent" to="Login" >
       </q-btn>
     </div>
-    <q-btn flat round dense icon="more_vert" />    
+    <q-btn flat round dense icon="more_vert" />  
+ 
     </q-toolbar>
 
 
 
     </q-header>
-
     <q-page-container>
       <router-view />
     </q-page-container>
