@@ -10,47 +10,46 @@
           </div>
         </q-card-section>
       </q-card>
-   
+     
 
     <div class="q-px-xl q-pb-md absolute-top-bottom">
       <q-table
         :rows="rows"
         :columns="columns"
         row-key="name"
-        :rows-per-page-options="[6]"
+        :rows-per-page-options="[3]"
         selection="multiple"
         v-model:selected="selected"
         :filter="filter"
         grid
         hide-header
       >
-       
-      <template v-slot:top-left>
-        <q-select
-              class="q-pa-xs on-right"
+       <template v-slot:top-left>
+            <q-input
+            class="q-pr-md q-pt-md q-pa-md"
               standout
+              debounce="300"
               v-model="filter"
-              :options="options"
-              :dense="dense"
-              :options-dense="denseOpts"
-              bg-color="white"
-              style="width: 480px"
-              label="Employee Name" 
+              label="Appointment Date"
               color="black"
-              transition-show="scale"
-              transition-hide="scale"
+              bg-color="white"
+              :dense="dense"
+              type="date"
+              style="width: 450px"
+              placeholder="Appointment Date"
             >
-          <template v-slot:before>
-            <q-btn
+              <template v-slot:before>
+                <q-btn
                   label="Search"
                   style="width: 80px"
                   size="md"
                   class="text-bold bg-black text-white"
                   text-outlined="white"
                 />
+              </template>
+            </q-input>
           </template>
-        </q-select>
-      </template>
+      
         <div class="q-pb-lg"></div>
         <template v-slot:item="props">
           <div
@@ -66,9 +65,7 @@
                 <div>
                   {{ props.row.name }}
                 </div>
-                <div class="q-gutter-x-xs">
-                 <q-icon size="40px" name="assignment" />
-                </div>
+                <q-btn outline dense label="CONFIRM" class="bg-black text-white" v-close-popup />
               </q-card-actions>
 
               <q-separator />
@@ -90,19 +87,12 @@
         </template>
       </q-table>
     </div>
-     </div>
+    </div>
   </q-page>
 </template>
 
 <script>
 const columns = [
-  {
-    name: 'name',
-    align: 'center',
-    label: 'Employee Name',
-    field: 'name',
-    sortable: true,
-  },
   {
     name: 'appointmentDate',
     label: 'Appointment Date',
@@ -114,61 +104,89 @@ const columns = [
     label: 'Time Slots',
     field: 'timeSlots',
   },
-  
-  { name: 'clientName', 
-  label: 'Client Name', 
-  field: 'clientName' 
+  {
+    name: 'purpose',
+    label: 'Purpose',
+    field: 'purpose',
+  },
+  { name: 'name', label: 'Client Name', field: 'name' },
+  {
+    name: 'phoneNumber',
+    label: 'Phone No.',
+    field: 'phoneNumber',
+    sortable: true,
+    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
+  },
+  {
+    name: 'emailAdd',
+    label: 'Email',
+    field: 'emailAdd',
+    sortable: true,
+    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
+  },
+  {
+    name: 'address',
+    label: 'Address',
+    field: 'address',
+    sortable: true,
+    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
+  },
+  {
+    name: 'positionDesignation',
+    label: 'Position/Designation',
+    field: 'positionDesignation',
+  },
+  {
+    name: 'agencyOffice',
+    label: 'Agency/Office',
+    field: 'agencyOffice',
   },
 ];
 
 const rows = [
   {
-    name: 'Azimah D. Ampuan',
     appointmentDate: 'September 21, 2021',
     timeSlots: '10:00AM-11:00AM',
-    clientName: 'Sahanie D. Ampuan',
+    purpose: 'Academic concerns',
+    name: 'Sahanie D. Ampuan',
+    phoneNumber: '09615133065',
+    emailAdd: 'ampuann98@gmail.com',
+    address: 'Marawi City',
+    positionDesignation:'Employee',
+    agencyOffice:'Marawi City Hall'
   },
   {
-    name: 'Rohma S. Carim',
     appointmentDate: 'October 22, 2021',
     timeSlots: '11:00AM-12:00PM',
-    clientName: 'Reshyl B. Maruhom',
+    purpose: 'Personal Issues',
+    name: 'Reshyl B. Maruhom',
+    phoneNumber: '09300546789',
+    emailAdd: 'reshyl123@gmail.com',
+    address: 'MSU Marawi City',
+    positionDesignation:'Baloi LDS',
+    agencyOffice:'None'
   },
   {
-    name: 'Inshidar P. Panganting',
     appointmentDate: 'December 23, 2021',
     timeSlots: '01:00PM-02:00PM',
-    clientName: 'Norol izaah A. Abdulrahim',
+    purpose: 'Academic Issues',
+    name: 'Norol izaah A. Abdulrahim',
+    phoneNumber: '09543244455',
+    emailAdd: 'norol876@gmail.com',
+    address: 'Bacolod Chico',
+    positionDesignation:'Employee',
+    agencyOffice:'New Capitol Marawi City'
   },
   {
-    name: 'Reshyl B. Maruhom',
     appointmentDate: 'September 23, 2021',
     timeSlots: '11:00AM-12:00PM',
-    clientName: 'Jalilah B. Macairing',
-  },
-  {
-    name: 'Reshyl B. Maruhom',
-    appointmentDate: 'September 23, 2021',
-    timeSlots: '11:00AM-12:00PM',
-    clientName: 'Jalilah B. Macairing',
-  },
-  {
-    name: 'Rohma S. Carim',
-    appointmentDate: 'October 22, 2021',
-    timeSlots: '11:00AM-12:00PM',
-    clientName: 'Reshyl B. Maruhom',
-  },
-   {
-    name: 'Inshidar P. Panganting',
-    appointmentDate: 'December 23, 2021',
-    timeSlots: '01:00PM-02:00PM',
-    clientName: 'Norol izaah A. Abdulrahim',
-  },
-  {
-    name: 'Azimah D. Ampuan',
-    appointmentDate: 'September 21, 2021',
-    timeSlots: '10:00AM-11:00AM',
-    clientName: 'Sahanie D. Ampuan',
+    purpose: 'Academic concerns',
+    name: 'Jalilah B. Macairing',
+    phoneNumber: '09456543445',
+    emailAdd: 'macairing8@gmail.com',
+    address: 'Marantao Lanao Del Sur',
+    positionDesignation:'Employee',
+    agencyOffice:'MSU Marawi City'
   },
 ];
 
@@ -195,6 +213,29 @@ export default {
         address: '',
       },
     };
+  },
+
+  methods: {
+    addAppointment() {
+      this.rows.push(this.participant);
+      this.prompt = false;
+    },
+
+    editAppointment() {},
+
+    deleteAppointment() {
+      this.$q
+        .dialog({
+          title: 'Delete',
+          message: 'Are you sure you want to delete?',
+          color: 'red',
+          cancel: true,
+          persistent: true,
+        })
+        .onOk(() => {
+          // console.log('>>>> OK')
+        });
+    },
   },
 };
 </script>

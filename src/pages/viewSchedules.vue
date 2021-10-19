@@ -1,7 +1,7 @@
 <template>
   <q-page class="bg-image">
     <div class="q-pa-xl">
-      <q-card class="bg-teal-7">
+      <q-card class="bg-lime-9">
         <q-card-section class="text-black">
           <div class="text-h7 text-bold">MSU Office of the Chancellor</div>
           <div class="text-h5 text-white">
@@ -30,7 +30,7 @@
               :options="options"
               :dense="dense"
               :options-dense="denseOpts"
-              bg-color="teal-1"
+              bg-color="white"
               style="width: 450px"
               label="Employee Name" 
               color="black"
@@ -120,33 +120,57 @@ const columns = [
 const rows = [
   {
     name: 'Azimah D. Ampuan',
-    availableDay: 'Monday',
-    availableTime: '10:00AM-01:00PM',
+    availableDay: 'September 21, 2021',
+    availableTime: '10:00AM-11:00AM',
     perClientTime: '1 Hour',
   },
   {
     name: 'Rohma S. Carim',
-    availableDay: 'Tuesday',
-    availableTime: '08:00AM-01:00PM',
-    perClientTime: '1 Hour',
-  },
-  {
-    name: 'Inshidar P. Panganting',
-    availableDay: 'Wednesday',
-    availableTime: '01:00Pm-05:00PM',
+    availableDay: 'October 22, 2021',
+    availableTime: '11:00AM-12:00PM',
     perClientTime: '30 Minutes',
   },
   {
+    name: 'Inshidar P. Panganting',
+    availableDay: 'December 23, 2021',
+    availableTime: '01:00PM-02:00PM',
+    perClientTime: '1 Hour and 30 minutes',
+  },
+  {
     name: 'Reshyl B. Maruhom',
-    availableDay: 'Thursday',
-    availableTime: '10:00AM-01:00PM',
+    availableDay: 'September 23, 2021',
+    availableTime: '11:00AM-12:00PM',
     perClientTime: '1 Hour',
   },
   {
-    name: 'Norol Izzah A. Abdulrahim',
-    availableDay: 'Friday',
-    availableTime: '08:00AM-01:00PM',
+    name: 'Azimah D. Ampuan',
+    availableDay: 'September 21, 2021',
+    availableTime: '10:00AM-11:00AM',
     perClientTime: '1 Hour',
+  },
+  {
+    name: 'Rohma S. Carim',
+    availableDay: 'October 22, 2021',
+    availableTime: '11:00AM-12:00PM',
+    perClientTime: '30 Minutes',
+  },
+  {
+    name: 'Inshidar P. Panganting',
+    availableDay: 'December 23, 2021',
+    availableTime: '01:00PM-02:00PM',
+    perClientTime: '1 Hour and 30 minutes',
+  },
+  {
+    name: 'Reshyl B. Maruhom',
+    availableDay: 'September 23, 2021',
+    availableTime: '11:00AM-12:00PM',
+    perClientTimee: '1 Hour',
+  },
+  {
+    name: 'Azimah D. Ampuan',
+    availableDay: 'September 21, 2021',
+    availableTime: '10:00AM-11:00AM',
+    perClientTime: '15 minutes',
   },
 ];
 

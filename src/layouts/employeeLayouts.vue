@@ -27,9 +27,9 @@
       bordered
       class="bg-white"
     >
-      <q-scroll-area style="height: calc(100% - 200px); margin-top: 200px; border-right: 1px solid #ddd">>
+      <q-scroll-area style="height: calc(100% - 200px); margin-top: 200px; border-right: 1px solid #ddd">
         <q-list padding class="menu-list">
-          <q-item clickable v-ripple to="adminDash">
+          <q-item clickable v-ripple to="employeeDash">
             <q-item-section avatar>
               <q-icon name="dashboard" />
             </q-item-section>
@@ -37,39 +37,31 @@
             <q-item-section> Dashboard </q-item-section>
           </q-item>
 
-          <q-item clickable v-ripple to="viewAppointments">
+          <q-item clickable v-ripple to="addAppointments">
             <q-item-section avatar>
               <q-icon name="assignment" />
             </q-item-section>
 
             <q-item-section>Appointments </q-item-section>
           </q-item>
+          <q-separator></q-separator>
 
-          <q-item clickable v-ripple to="adminViewSchedule">
+          <q-separator />
+          <q-item clickable v-ripple to="addSchedule">
             <q-item-section avatar>
               <q-icon name="event_available" />
             </q-item-section>
 
-            <q-item-section> Schedule </q-item-section>
-          </q-item>
-          <q-separator />
-           <q-item clickable v-ripple to="manageEmployee">
-            <q-item-section avatar>
-              <q-icon name="people" />
-            </q-item-section>
- 
-            <q-item-section> Manage Employee </q-item-section>
-          </q-item>
-
-           <q-item clickable v-ripple to="manageAccount">
-            <q-item-section avatar>
-              <q-icon name="settings" />
-            </q-item-section>
-
-            <q-item-section> Manage Account </q-item-section>
+            <q-item-section> Add Schedule </q-item-section>
           </q-item>
           
-          
+          <q-item clickable v-ripple to="viewFeedbacks">
+            <q-item-section avatar>
+              <q-icon name="feedback" />
+            </q-item-section>
+
+            <q-item-section>View Feedback </q-item-section>
+          </q-item>
         </q-list>
       </q-scroll-area>
       <q-img class="absolute-top" src="../assets/image/LogInLayout.jpeg" style="height: 200px">

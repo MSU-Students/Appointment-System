@@ -1,7 +1,7 @@
 <template>
   <q-page class="bg-image">
     <div class="q-pa-xl">
-      <q-card class="bg-green">
+      <q-card class="bg-grey-7">
         <q-card-section class="text-black">
           <div class="text-h7 text-bold">MSU Office of the Chancellor</div>
           <div class="text-h5 text-white q-pl-lg">

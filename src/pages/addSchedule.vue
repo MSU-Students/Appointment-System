@@ -1,88 +1,104 @@
 <template>
   <q-page class="bg-image">
-    <div class="q-pa-lg">
-      <q-card class="bg-lime-9">
+    <div class="q-pa-xl">
+      <q-card class="bg-blue-grey">
         <q-card-section class="text-black">
           <div class="text-h7 text-bold">MSU Office of the Chancellor</div>
           <div class="text-h5 text-white">
             <q-icon name="arrow_upward" />
-            EMPLOYEE PROFILE
+            SCHEDULES
           </div>
         </q-card-section>
       </q-card>
-      <div class="q-pl-lg q-pt-sm q-pa-md">
+      <div class="q-pl-lg q-pa-md">
         <q-btn
           color="black"
           text-color="white"
-          label="Add Employee"
+          label="Add Schedules"
           icon-right="add"
           @click="prompt = true"
         />
       </div>
     
+
     <div>
       <q-dialog v-model="prompt" persistent>
-        <q-card style="width: 450px">
+        <q-card style="width: 480px">
           <q-toolbar>
             <q-avatar>
-              <q-icon name="people" size="md" />
+              <q-icon name="event_available" size="md" />
             </q-avatar>
 
             <q-toolbar-title
               ><span class="text-weight-bold">Add</span>
-              Employee</q-toolbar-title
+              Schedules</q-toolbar-title
             >
 
             <q-btn flat round dense icon="close" v-close-popup />
           </q-toolbar>
-          <q-card-section class="q-gutter-sm flex flex-center">
-            <q-input
-              bg-color="grey-3"
-              color="black"
-              outlined
-              label="Full Name"
-              v-model="participant.name"
-              style="width: 400px"
-            />
-            <q-input
-              bg-color="grey-3"
-              color="black"
-              outlined
-              label="Email"
-              v-model="participant.emailAdd"
-              style="width: 400px"
-            />
-            <q-input
-              bg-color="grey-3"
-              color="black"
-              outlined
-              v-model="participant.position"
-              label="Position"
-              style="width: 400px"
-            />
-            <q-select
+
+          <q-card-section class="q-gutter-md flex flex-center">
+
+
+              <q-select
+                standout
+                v-model="participant.name"
+                :options="options"
+                :dense="dense"
+                :options-dense="denseOpts"
+                 color="black"
+                 bg-color="grey-3"
+                label="Employee Name"
+                style="width: 400px"
+                transition-show="scale"
+                transition-hide="scale"
+              />
+                <q-input
               standout
-              v-model="participant.gender"
-              :options="options"
-              :dense="dense"
-              :options-dense="denseOpts"
-              color="black"
+              debounce="300"
               bg-color="grey-3"
-              label="Gender"
+              color="black"
+              :dense="dense"
+              type="date"
               style="width: 400px"
-              transition-show="scale"
-              transition-hide="scale"
+              label="Available Day"
             />
             <q-input
-              bg-color="grey-3"
-              color="black"
-              outlined
-              v-model="participant.address"
-              label="Address"
-              style="width: 400px"
+            outlined 
+            v-model="time" 
+            text-color="black"
+            bg-color="grey-3" 
+            type="time" 
+            style="width:400px"
+            label="Available time from"
+            color="black"
             />
-           
+            <q-input
+            outlined 
+            v-model="time" 
+            text-color="black"
+            bg-color="grey-3" 
+            type="time" 
+            style="width:400px"
+            label="Available time to"
+            color="black"
+            />
+                <q-select
+                  standout
+                  v-model="participant.timeSlots"
+                  :options="options"
+                  :dense="dense"
+                  :options-dense="denseOpts"
+                  label="Per Client Time"
+                  color="black"
+                  bg-color="grey-3"
+                  transition-show="scale"
+                  transition-hide="scale"
+                  style="width: 400px"
+                />
+                
           </q-card-section>
+
 
           <q-card-actions align="center" class="q-pr-lg q-pb-md">
             <q-btn
@@ -104,7 +120,7 @@
       </q-dialog>
     </div>
 
-    <div class="q-px-xl absolute-top-bottom">
+    <div class="q-px-xl q-pb-md absolute-top-bottom">
       <q-table
         :rows="rows"
         :columns="columns"
@@ -132,22 +148,7 @@
                   {{ props.row.name }}
                 </div>
                 <div class="q-gutter-x-xs">
-                  <q-btn
-                    color="blue"
-                    icon="edit"
-                    size="md"
-                    flat
-                    round
-                    @click="editAppointment()"
-                  />
-                  <q-btn
-                    color="red-10"
-                    icon="delete"
-                    size="md"
-                    dense
-                    flat
-                    @click="deleteAppointment()"
-                  />
+                 <q-icon size="40px" name="event_available" />
                 </div>
               </q-card-actions>
 
@@ -173,111 +174,113 @@
     </div>
   </q-page>
 </template>
+
 <script>
 const columns = [
   {
     name: 'name',
     align: 'center',
-    label: 'Full Name',
+    label: 'Employee Name',
     field: 'name',
     sortable: true,
   },
   {
-    name: 'emailAdd',
-    label: 'Email',
-    field: 'emailAdd',
-  },
-  {
-    name: 'position',
-    label: 'Position',
-    field: 'position',
-  },
-  { name: 'gender', 
-  label: 'Gender', 
-  field: 'gender' },
-  {
-    name: 'address',
-    label: 'Address',
-    field: 'address',
+    name: 'availableDay',
+    label: 'Available Day',
+    field: 'availableDay',
     sortable: true,
-    sort: (a, b) => parseInt(a, 10) - parseInt(b, 10),
   },
+  {
+    name: 'availableTime',
+    label: 'Available Time',
+    field: 'availableTime',
+  },
+
+  { name: 'perClientTime', 
+  label: 'Per Client Time', 
+  field: 'perClientTime' 
+  },
+  
 ];
 
 const rows = [
   {
     name: 'Azimah D. Ampuan',
-    emailAdd: '10:00AM-11:00AM',
-    purpose: 'Academic concerns',
-    position: 'Sahanie D. Ampuan',
-    gender: '09615133065',
-    address: 'ampuann98@gmail.com',
-    
+    availableDay: 'September 21, 2021',
+    availableTime: '10:00AM-11:00AM',
+    perClientTime: '1 Hour',
+  },
+  {
+    name: 'Rohma S. Carim',
+    availableDay: 'October 22, 2021',
+    availableTime: '11:00AM-12:00PM',
+    perClientTime: '30 Minutes',
+  },
+  {
+    name: 'Inshidar P. Panganting',
+    availableDay: 'December 23, 2021',
+    availableTime: '01:00PM-02:00PM',
+    perClientTime: '1 Hour and 30 minutes',
+  },
+  {
+    name: 'Reshyl B. Maruhom',
+    availableDay: 'September 23, 2021',
+    availableTime: '11:00AM-12:00PM',
+    perClientTime: '1 Hour',
   },
   {
     name: 'Azimah D. Ampuan',
-    emailAdd: '10:00AM-11:00AM',
-    purpose: 'Academic concerns',
-    position: 'Sahanie D. Ampuan',
-    gender: '09615133065',
-    address: 'ampuann98@gmail.com',
-    
+    availableDay: 'September 21, 2021',
+    availableTime: '10:00AM-11:00AM',
+    perClientTime: '1 Hour',
+  },
+  {
+    name: 'Rohma S. Carim',
+    availableDay: 'October 22, 2021',
+    availableTime: '11:00AM-12:00PM',
+    perClientTime: '30 Minutes',
+  },
+  {
+    name: 'Inshidar P. Panganting',
+    availableDay: 'December 23, 2021',
+    availableTime: '01:00PM-02:00PM',
+    perClientTime: '1 Hour and 30 minutes',
+  },
+  {
+    name: 'Reshyl B. Maruhom',
+    availableDay: 'September 23, 2021',
+    availableTime: '11:00AM-12:00PM',
+    perClientTimee: '1 Hour',
   },
   {
     name: 'Azimah D. Ampuan',
-    emailAdd: '10:00AM-11:00AM',
-    purpose: 'Academic concerns',
-    position: 'Sahanie D. Ampuan',
-    gender: '09615133065',
-    address: 'ampuann98@gmail.com',
-    
-  },
-  {
-    name: 'Azimah D. Ampuan',
-    emailAdd: '10:00AM-11:00AM',
-    purpose: 'Academic concerns',
-    position: 'Sahanie D. Ampuan',
-    gender: '09615133065',
-    address: 'ampuann98@gmail.com',
-    
-  },
-  {
-    name: 'Azimah D. Ampuan',
-    emailAdd: '10:00AM-11:00AM',
-    purpose: 'Academic concerns',
-    position: 'Sahanie D. Ampuan',
-    gender: '09615133065',
-    address: 'ampuann98@gmail.com',
-    
-  },
-  {
-    name: 'Azimah D. Ampuan',
-    emailAdd: '10:00AM-11:00AM',
-    purpose: 'Academic concerns',
-    position: 'Sahanie D. Ampuan',
-    gender: '09615133065',
-    address: 'ampuann98@gmail.com',
-    
+    availableDay: 'September 21, 2021',
+    availableTime: '10:00AM-11:00AM',
+    perClientTime: '15 minutes',
   },
 ];
 
 export default {
   data() {
     return {
-      options: ['Male', 'Female'],
+      options: ['Google', 'Facebook', 'Twitter', 'Apple', 'Oracle'],
       dense: false,
       denseOpts: false,
       prompt: false,
       address: '',
+      time: '',
       filter: '',
       selected: [],
       columns,
       rows,
       participant: {
         name: '',
-       emailAdd: '',
-        position: '',
-        gender: '',
+        appointmentDate: '',
+        timeSlots: '',
+        purpose: '',
+        clientName: '',
+        phoneNumber: '',
+        emailAdd: '',
         address: '',
       },
     };

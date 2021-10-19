@@ -3,14 +3,14 @@
   <q-page class="bg-image">
     <div class="col q-col-gutter-md q-mr-sm absolute-center"></div>
     <div class="q-pa-xl">
-     
+      <div class="q-pt-xl">
         <div class="q-pl-lg">
           <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-            <q-card style="width: 410px">
+            <q-card style="width: 400px">
               <q-card-section
                 :class="$q.dark.isActive ? 'brown' : 'bg-brown-5'"
                 class="text-white"
-                style="height: 140px"
+                style="height: 150px"
               >
                 <div class="row">
                   <div class="col-10">
@@ -31,11 +31,11 @@
     <div class="q-pt-md">
       <div class="q-pl-lg">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <q-card style="width: 410px">
+          <q-card style="width: 400px">
             <q-card-section
               :class="$q.dark.isActive ? 'black' : 'bg-warning'"
               class="text-black"
-              style="height: 140px"
+              style="height: 150px"
             >
               <div class="row">
                 <div class="col-10">
@@ -54,34 +54,11 @@
     <div class="q-pt-md">
       <div class="q-pl-lg">
         <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <q-card style="width: 410px">
-            <q-card-section
-              :class="$q.dark.isActive ? 'black' : 'bg-blue-grey'"
-              class="text-black"
-              style="height: 140px"
-            >
-              <div class="row">
-                <div class="col-10">
-                  <div class="text-h5">Accounts</div>
-                  <div class="text-h4 text-bold">18</div>
-                </div>
-                <div class="col-2">
-                  <q-icon size="65px" name="send" />
-                </div>
-              </div>
-            </q-card-section>
-          </q-card>
-        </div>
-      </div>
-    </div>
-    <div class="q-pt-md">
-      <div class="q-pl-lg">
-        <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
-          <q-card style="width: 410px">
+          <q-card style="width: 400px">
             <q-card-section
               :class="$q.dark.isActive ? 'warning' : 'bg-secondary'"
               class="text-white"
-              style="height: 140px"
+              style="height: 150px"
             >
               <div class="row">
                 <div class="col-10">
@@ -101,20 +78,21 @@
     <div class="absolute-right q-pr-xl">
       <div class="q-pr-xl">
       <div class="q-pa-md">
-         <div class="q-pt-lg q-pt-md">
+         <div class="q-pt-xl q-pt-md">
         <q-table
           class="my-sticky-header-column-table"
           title="Ongoing Schedule:"
           :rows="rows"
           :columns="columns"
           row-key="name"
-          :rows-per-page-options="[7]"
+          :rows-per-page-options="[8]"
+          :filter="filter"
         />
       </div>
       </div>
     </div>
     </div>
-   
+    </div>
     </div>
   </q-page>
 </template>
@@ -215,11 +193,26 @@ const rows = [
     Time: '03:00 P.M.',
     Day: 'Friday',
   },
+  {
+    name: 'Academic Concerns',
+    Employee: 'Ms. jawharah Saripada',
+    Schedule: 'Jan. 16, 2021',
+    Time: '04:00 P.M.',
+    Day: 'Monday',
+  },
+  {
+    name: 'Academic Issues',
+    Employee: 'Ms. Sahanie Ampuan',
+    Schedule: 'feb. 26, 2021',
+    Time: '09:00 A.M.',
+    Day: 'Tuesday',
+  },
 ];
 
 export default {
   setup() {
     return {
+      filter: '',
       columns,
       rows,
     };
@@ -229,15 +222,15 @@ export default {
 <style lang="sass">
 .my-sticky-header-column-table
   /* height or max-height is important */
-  height: 630px
+  height: 550px
 
   /* specifying max-width so the example can
     highlight the sticky column on any browser window */
-  width: 660px
+  width: 670px
 
   td:first-child
     /* bg color is important for td; just specify one */
-    background-color: #21ba45  !important
+    background-color: #21ba45 !important
 
   tr th
     position: sticky
@@ -249,7 +242,7 @@ export default {
   /* this will be the loading indicator */
   thead tr:last-child th
     /* height of all previous header rows */
-    top: 48x
+    top: 48px
     /* highest z-index */
     z-index: 3
   thead tr:first-child th
