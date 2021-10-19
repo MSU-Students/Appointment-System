@@ -105,6 +105,7 @@
                       val="rectangle"
                       label="Employee"
                       color="black"
+                      to="employeeDash"
                     />
                   </div>
                 </div>

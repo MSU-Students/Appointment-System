@@ -1,7 +1,7 @@
 <template>
   <q-page class="bg-image">
     <div class="q-pa-xl">
-      <q-card class="bg-secondary">
+      <q-card class="bg-teal-7">
         <q-card-section class="text-black">
           <div class="text-h7 text-bold">MSU Office of the Chancellor</div>
           <div class="text-h5 text-white">
@@ -26,7 +26,7 @@
         <q-card style="width: 480px">
           <q-toolbar>
             <q-avatar>
-              <q-icon name="book_online" />
+              <q-icon name="assignment" size="md" />
             </q-avatar>
 
             <q-toolbar-title
@@ -114,6 +114,22 @@
                   outlined
                   v-model="participant.address"
                   label="Address"
+                  style="width: 400px"
+                />
+                 <q-input
+                  bg-color="grey-3"
+                  color="black"
+                  outlined
+                  v-model="participant.designation"
+                  label="Position/Designation"
+                  style="width: 400px"
+                />
+                 <q-input
+                  bg-color="grey-3"
+                  color="black"
+                  outlined
+                  v-model="participant.agency"
+                  label="Agency/Office"
                   style="width: 400px"
                 />
           </q-card-section>
@@ -292,6 +308,8 @@ export default {
         phoneNumber: '',
         emailAdd: '',
         address: '',
+        designation: '',
+        agency:'',
       },
     };
   },

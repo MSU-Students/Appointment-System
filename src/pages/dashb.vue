@@ -81,7 +81,7 @@
          <div class="q-pt-xl q-pt-md">
         <q-table
           class="my-sticky-header-column-table"
-          title="Ongoing Schedule:"
+          title="Ongoing Appointments:"
           :rows="rows"
           :columns="columns"
           row-key="name"
@@ -222,15 +222,15 @@ export default {
 <style lang="sass">
 .my-sticky-header-column-table
   /* height or max-height is important */
-  height: 530px
+  height: 550px
 
   /* specifying max-width so the example can
     highlight the sticky column on any browser window */
-  max-width: 900px
+  width: 670px
 
   td:first-child
     /* bg color is important for td; just specify one */
-    background-color: #c1f4cd !important
+    background-color: #21ba45 !important
 
   tr th
     position: sticky

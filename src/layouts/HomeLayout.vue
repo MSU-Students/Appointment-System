@@ -27,7 +27,7 @@
       bordered
       class="bg-white"
     >
-      <q-scroll-area class="fit">
+      <q-scroll-area style="height: calc(100% - 200px); margin-top: 200px; border-right: 1px solid #ddd">
         <q-list padding class="menu-list">
           <q-item clickable v-ripple to="dashb">
             <q-item-section avatar>
@@ -70,6 +70,13 @@
           </q-item>
         </q-list>
       </q-scroll-area>
+      <q-img class="absolute-top" src="../assets/image/LogInLayout.jpeg" style="height: 200px">
+          <div class="absolute-bottom bg-transparent">
+            
+            <div class="text-weight-bold text-black text-bold">Welcome to MSU Appointment System</div>
+            <div>@msumain.edu.ph</div>
+          </div>
+        </q-img>
     </q-drawer>
     <q-page-container>
       <router-view />

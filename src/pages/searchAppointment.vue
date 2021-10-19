@@ -21,20 +21,20 @@
         >
           <template v-slot:top-left>
             <q-select
-              class="on-right"
+              class="q-pt-md on-right"
               standout
               v-model="filter"
               :options="options"
               :dense="dense"
               :options-dense="denseOpts"
               bg-color="blue-grey-3"
-              style="width: 480px"
+              style="width: 450px"
               label="Employee Name"
               color="black"
               transition-show="scale"
               transition-hide="scale"
             >
-              <template v-slot:after>
+              <template v-slot:before>
                 <q-btn
                   label="Search"
                   style="width: 80px"
@@ -43,21 +43,20 @@
                   text-outlined="white"
                 />
               </template>
-              <template v-slot:before>
-                <div class="text-body2">Employee Name</div>
-              </template>
+
             </q-select>
           </template>
 
           <template v-slot:top-right>
             <q-input
+            class="q-pr-md q-pt-md"
               standout
               debounce="300"
               v-model="filter"
               bg-color="blue-grey-2"
               :dense="dense"
               type="date"
-              style="width: 300px"
+              style="width: 400px"
               placeholder="Appointment Date"
             >
               <template v-slot:before>

@@ -1,7 +1,7 @@
 <template>
   <q-page class="bg-image">
     <div class="q-pa-xl">
-      <q-card class="bg-teal-7">
+      <q-card class="bg-grey-7">
         <q-card-section class="text-black">
           <div class="text-h7 text-bold">MSU Office of the Chancellor</div>
           <div class="text-h5 text-white">
@@ -30,6 +30,7 @@
                 style="width: 300px"
                 v-model="filter"
                 placeholder="Search"
+                color="black"
               >
                 <template v-slot:append>
                   <q-icon name="search" />
@@ -46,7 +47,7 @@
                 <q-card style="width: 450px">
                   <q-toolbar>
                     <q-avatar>
-                      <q-icon name="settings" />
+                      <q-icon name="settings" size="md" />
                     </q-avatar>
 
                     <q-toolbar-title
@@ -142,7 +143,7 @@
               <div>
                 <q-td>
                   <q-btn
-                    round
+                   
                     color="blue"
                     icon="edit"
                     size="sm"
