@@ -19,7 +19,7 @@
           @click="prompt = true"
         />
       </div>
-    
+
 
     <div>
       <q-dialog v-model="prompt" persistent>
@@ -38,7 +38,6 @@
           </q-toolbar>
 
           <q-card-section class="q-gutter-md flex flex-center">
-
 
               <q-select
                 standout
@@ -64,21 +63,21 @@
               label="Available Day"
             />
             <q-input
-            outlined 
-            v-model="time" 
+            outlined
+            v-model="time"
             text-color="black"
-            bg-color="grey-3" 
-            type="time" 
+            bg-color="grey-3"
+            type="time"
             style="width:400px"
             label="Available time from"
             color="black"
             />
             <q-input
-            outlined 
-            v-model="time" 
+            outlined
+            v-model="time"
             text-color="black"
-            bg-color="grey-3" 
-            type="time" 
+            bg-color="grey-3"
+            type="time"
             style="width:400px"
             label="Available time to"
             color="black"
@@ -96,11 +95,11 @@
                   transition-hide="scale"
                   style="width: 400px"
                 />
-                
+
           </q-card-section>
 
 
-          <q-card-actions align="center" class="q-pr-lg q-pb-md">
+          <q-card-actions align="center" class="q-pr-lg q-pb-lg">
             <q-btn
               color="white"
               text-color="black"
@@ -196,11 +195,11 @@ const columns = [
     field: 'availableTime',
   },
 
-  { name: 'perClientTime', 
-  label: 'Per Client Time', 
-  field: 'perClientTime' 
+  { name: 'perClientTime',
+  label: 'Per Client Time',
+  field: 'perClientTime'
   },
-  
+
 ];
 
 const rows = [

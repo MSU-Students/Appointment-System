@@ -6,6 +6,15 @@ import {
   useStore as vuexUseStore,
 } from 'vuex'
 
+import schedule from './schedule'
+import {ScheduleStateInterface} from './schedule/state'
+import account from './account'
+import {AccountStateInterface} from './account/state'
+import appointment from './appointment'
+import {AppointmentStateInterface} from './appointment/state'
+import employee from './employee'
+import {EmployeeStateInterface} from './employee/state'
+
 // import example from './module-example'
 // import { ExampleStateInterface } from './module-example/state';
 
@@ -22,7 +31,11 @@ export interface StateInterface {
   // Define your own store structure, using submodules if needed
   // example: ExampleStateInterface;
   // Declared as unknown to avoid linting issue. Best to strongly type as per the line above.
-  example: unknown
+  //example: unknown
+  schedule: ScheduleStateInterface,
+  account: AccountStateInterface,
+  appointment: AppointmentStateInterface,
+  employee: EmployeeStateInterface
 }
 
 // provide typings for `this.$store`
@@ -39,6 +52,10 @@ export default store(function (/* { ssrContext } */) {
   const Store = createStore<StateInterface>({
     modules: {
       // example
+      account,
+      schedule,
+      appointment,
+      employee
     },
 
     // enable strict mode (adds overhead!)

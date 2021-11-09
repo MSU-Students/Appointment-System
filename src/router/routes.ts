@@ -36,7 +36,8 @@ const routes: RouteRecordRaw[] = [
       { path: '/viewAppointments', component: () => import('pages/viewAppointments.vue')},
       { path: '/adminViewSchedule', component: () => import('pages/adminViewSchedule.vue')},
       { path: '/manageEmployee', component: () => import('pages/manageEmployee.vue')},
-      { path: '/manageAccount', component: () => import('pages/manageAccount.vue')}
+      { path: '/manageAccount', component: () => import('pages/manageAccount.vue')},
+      { path: '/manageAccountAnother', component: () => import('pages/manageAccountAnother.vue')}
     ],
   },
   {
