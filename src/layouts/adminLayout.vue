@@ -61,7 +61,7 @@
             <q-item-section> Manage Employee </q-item-section>
           </q-item>
 
-           <q-item clickable v-ripple to="manageAccount">
+           <q-item clickable v-ripple to="manageAccountAnother">
             <q-item-section avatar>
               <q-icon name="settings" />
             </q-item-section>
